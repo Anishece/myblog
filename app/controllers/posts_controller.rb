@@ -10,7 +10,12 @@ class PostsController < ApplicationController
   end
   
   def create
-    
+    @post = Post.create(post_params)
+    if @post.save
+      redirect_to posts_path, :notice => "Your post has been saved"
+    else
+      render "new"
+    end  
   end
   
   def edit
@@ -28,5 +33,11 @@ class PostsController < ApplicationController
   def destroy
     
   end  
+ 
+  private
+    def post_params
+       params.require(:post).permit!
+    end
+
   
 end
