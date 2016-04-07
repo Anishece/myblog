@@ -23,9 +23,9 @@ class PostsController < ApplicationController
   end
   
   def update
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
     
-    if @posts.update_attributes(params[:post].permit!) 
+    if @post.update_attributes(params[:post].permit!) 
        redirect_to post_path, :notice => "Your post has been updated"
     else
        render "edit"
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   end
   
   def show
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
   
   def destroy
