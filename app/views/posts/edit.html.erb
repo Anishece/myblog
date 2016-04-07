@@ -1,5 +1,5 @@
 <h1>Edit post</h1>
-<%= form_for @post do |f|%>
+<%= form_for @post do |f| %>
   <p>
       <%= f.label :title %><br />
 	  <%= f.text_field :title %><br />
@@ -12,6 +12,6 @@
       <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]},{:inhclude_blank => "Select One"}%><br /> 
   </p>
   <p>
-     <%= f.submit "Add Post" %><br />
+     <%= f.submit "Update Post" %><br />
  </p>
 <% end %>

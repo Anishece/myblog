@@ -19,11 +19,17 @@ class PostsController < ApplicationController
   end
   
   def edit
-     @posts = Post.find(params[:id])  
+     @post = Post.find(params[:id])  
   end
   
   def update
+    @posts = Post.find(params[:id])
     
+    if @posts.update_attributes(params[:post].permit(:role_ids)) 
+       redirect_to post_path, :notice => "Your post has been updated"
+    else
+       render "edit"
+    end  
   end
   
   def show
