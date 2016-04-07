@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
   
   def edit
-    
+     @posts = Post.find(params[:id])  
   end
   
   def update
@@ -33,11 +33,9 @@ class PostsController < ApplicationController
   def destroy
     
   end  
- 
+
   private
     def post_params
        params.require(:post).permit!
     end
-
-  
 end
