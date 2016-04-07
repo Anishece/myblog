@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   def update
     @posts = Post.find(params[:id])
     
-    if @posts.update_attributes(params[:post].permit(:role_ids)) 
+    if @posts.update_attributes(params[:post].permit!) 
        redirect_to post_path, :notice => "Your post has been updated"
     else
        render "edit"
@@ -37,7 +37,9 @@ class PostsController < ApplicationController
   end
   
   def destroy
-    
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, :notice => "Your post has beeen deleted"
   end  
 
   private

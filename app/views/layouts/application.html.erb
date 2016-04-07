@@ -2,10 +2,14 @@
 <html>
 <head>
   <title>Myblog2</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'dataturbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= flash.each do |key,value| %>
+<p><%= value %></p>
+<% end %>
 <%= yield %>
 
 </body>
