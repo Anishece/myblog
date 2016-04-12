@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   resources :categories
   get 'categories/index'
 
@@ -69,4 +68,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  ActiveAdmin.routes(self)
 end
