@@ -14,7 +14,7 @@ ActiveAdmin.register Category do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :all
+  permit_params :id, :name, :created_at, :updated_at 
   #
   # or
   #
